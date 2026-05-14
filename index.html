@@ -291,6 +291,74 @@
     margin-top: 2rem;
   }
 
+  /* ── BENEFITS SECTION ── */
+  .benefits-intro {
+    font-size: 14px;
+    color: var(--mid);
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .benefit-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.15rem;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .benefit-card .benefit-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+  .benefit-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+  .benefit-card p {
+    color: var(--mid);
+    font-size: 13px;
+  }
+  .benefit-card .benefit-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 12px;
+    color: var(--sage-dark);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--sage);
+  }
+  .benefit-card .benefit-link:hover { color: var(--accent); border-color: var(--accent); }
+  .benefit-card ul {
+    margin: 0.4rem 0 0 1rem;
+    padding: 0;
+    font-size: 12.5px;
+    color: var(--mid);
+  }
+  .benefit-card ul li { margin-bottom: 0.15rem; }
+  .benefit-card.highlight {
+    border-color: var(--sage);
+    background: var(--warm-white);
+  }
+  .pmos-relevance {
+    background: #f0e8f8;
+    border: 1px solid #d5bff0;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 13px;
+    color: #4a2a6a;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+  .pmos-relevance strong { color: #3a1a5a; }
+
   @media (max-width: 600px) {
     header { padding: 2rem 1.25rem; }
     .card-header { flex-direction: column; }
@@ -546,6 +614,108 @@
       <span class="res-desc">Virginia's online Medicaid application portal</span>
     </li>
   </ul>
+
+  <!-- VA MEDICAID BENEFITS -->
+  <p class="section-label">What Virginia Medicaid Covers</p>
+
+  <p class="benefits-intro">
+    Virginia Medicaid (administered by the Department of Medical Assistance Services, DMAS) covers a broad range of services — many of which are directly relevant to managing PMOS/PCOS. Most members are enrolled in a <strong>managed care plan</strong> (Anthem HealthKeepers Plus, Aetna Better Health, Humana Healthy Horizons, Sentara Community Plan, or UnitedHealthcare Community Plan), and specific coverage details can vary by plan. The benefits below apply statewide, including the Richmond area.
+  </p>
+
+  <div class="pmos-relevance">
+    <strong>Why this matters for PMOS/PCOS:</strong> Managing PMOS often involves specialist visits (endocrinology, OB/GYN), lab work, prescription medications (metformin, hormonal contraceptives, etc.), mental health support for anxiety and depression that commonly accompany PMOS, nutritional counseling for metabolic health, and sometimes fertility-related care. Virginia Medicaid covers all of these categories.
+  </div>
+
+  <div class="benefits-grid">
+
+    <div class="benefit-card highlight">
+      <div class="benefit-icon">🩺</div>
+      <h3>Specialist & Outpatient Visits</h3>
+      <p>Covered — includes endocrinologist and OB/GYN visits, which are the primary specialist types for PMOS care. Referral may be required depending on your managed care plan.</p>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/" target="_blank">DMAS Benefits Overview →</a>
+    </div>
+
+    <div class="benefit-card highlight">
+      <div class="benefit-icon">🛡️</div>
+      <h3>Adult Preventive Services</h3>
+      <p>Covered at no cost to members as of July 1, 2022 — for <em>all</em> adult Medicaid members. Relevant services include:</p>
+      <ul>
+        <li>Adult wellness exam (annual)</li>
+        <li>Blood pressure & cholesterol screenings</li>
+        <li>Depression screenings</li>
+        <li>Nutritional counseling</li>
+        <li>Cancer screenings (mammography, etc.)</li>
+        <li>Recommended vaccines</li>
+        <li>Smoking cessation counseling</li>
+      </ul>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/adult-preventive-services/" target="_blank">Full preventive services list →</a>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">💊</div>
+      <h3>Prescription Drugs</h3>
+      <p>Covered through your managed care plan's formulary. Common PMOS medications — including metformin (insulin sensitizer) and hormonal contraceptives — are generally on Medicaid formularies. Each MCO has its own drug list; check yours:</p>
+      <ul>
+        <li><a href="https://mss.anthem.com/va/benefits/pharmacy-benefits.html" target="_blank" style="color:var(--sage-dark)">Anthem HealthKeepers Plus</a></li>
+        <li><a href="https://www.aetnabetterhealth.com/virginia/members/pharmacy-benefits/formulary" target="_blank" style="color:var(--sage-dark)">Aetna Better Health</a></li>
+        <li><a href="https://www.humana.com/medicaid/virginia/coverage/pharmacy" target="_blank" style="color:var(--sage-dark)">Humana Healthy Horizons</a></li>
+        <li><a href="https://www.sentarahealthplans.com/members/medicaid/prescription-drug-lists" target="_blank" style="color:var(--sage-dark)">Sentara Community Plan</a></li>
+      </ul>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/prescription-drug-formularies/" target="_blank">All formulary links →</a>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">🧠</div>
+      <h3>Behavioral Health</h3>
+      <p>Covered — PMOS is strongly associated with anxiety and depression. Virginia Medicaid covers a broad range of mental health services including:</p>
+      <ul>
+        <li>Outpatient therapy and counseling</li>
+        <li>Intensive outpatient programs (IOP)</li>
+        <li>Partial hospitalization (daytime)</li>
+        <li>Crisis services and mobile crisis teams</li>
+        <li>Community-based team supports</li>
+      </ul>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/behavioral-health/" target="_blank">Behavioral health services →</a>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">🦷</div>
+      <h3>Dental Coverage</h3>
+      <p>Dental coverage is now available for both adults and children on Virginia Medicaid. Relevant because poor metabolic health (including insulin resistance from PMOS) can affect oral health.</p>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/dental/" target="_blank">Dental benefit details →</a>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">🚗</div>
+      <h3>Transportation to Appointments</h3>
+      <p>Covered when you have no other way to get to a covered Medicaid service. This applies to specialist visits — valuable if getting to an endocrinologist across Richmond is a barrier.</p>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/transportation-services/" target="_blank">How to request a ride →</a>
+    </div>
+
+    <div class="benefit-card highlight">
+      <div class="benefit-icon">🌸</div>
+      <h3>Plan First — Family Planning</h3>
+      <p>Virginia's <strong>Plan First</strong> program covers birth control and family planning services — including for people who may not otherwise qualify for full Medicaid. This is especially relevant for PMOS, where hormonal contraceptives are a core treatment tool for regulating cycles and managing symptoms.</p>
+      <a class="benefit-link" href="https://www.dmas.virginia.gov/for-members/benefits-and-services/plan-first/" target="_blank">Plan First program details →</a>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">🏥</div>
+      <h3>Inpatient Hospital Care</h3>
+      <p>Covered — includes hospital stays when medically necessary. Virginia Medicaid covers both inpatient and outpatient hospital services.</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">📋</div>
+      <h3>Lab Work & Diagnostics</h3>
+      <p>Covered — lab tests ordered by your provider are covered. This includes hormone panels, blood glucose, lipid panels, and other labs central to diagnosing and monitoring PMOS. Imaging (ultrasound) is also covered when medically indicated.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-note" style="margin-bottom: 1.25rem;">
+    <strong>How to find out what your specific plan covers:</strong> Once enrolled, you'll be assigned to or choose a managed care organization (MCO). Your MCO's member handbook is the definitive source for your specific coverage details. You can also call the member services number on your Medicaid card, or contact DMAS at <strong>1-800-552-8627</strong>. To apply for Medicaid: <a href="https://commonhelp.virginia.gov" target="_blank" style="color:var(--sage-dark)">commonhelp.virginia.gov</a> or call Cover Virginia at <strong>1-855-242-8282</strong>.
+  </div>
 
   <!-- FOOTER NOTE -->
   <div class="footer-note">
