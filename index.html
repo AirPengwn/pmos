@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMOS Care in Richmond, VA · Medicaid-Accepted Providers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7a9e87;
+    --sage-light: #d4e4da;
+    --sage-dark: #4a6b57;
+    --cream: #faf7f2;
+    --warm-white: #fff9f3;
+    --charcoal: #2c2c2c;
+    --mid: #5a5a5a;
+    --light: #8a8a8a;
+    --accent: #c4855a;
+    --accent-light: #f5e6db;
+    --border: #e0d8ce;
+    --confirmed: #5a8a6a;
+    --uncertain: #c09050;
+    --card-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--sage-dark);
+    color: white;
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 0%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  }
+  .header-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  header h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  header p {
+    font-size: 15px;
+    opacity: 0.88;
+    max-width: 560px;
+    line-height: 1.65;
+  }
+  .name-badge {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 0.35rem 1rem;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── NAME CHANGE CALLOUT ── */
+  .rename-banner {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    margin: 2rem auto;
+    max-width: 820px;
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    font-size: 14px;
+    color: var(--charcoal);
+  }
+  .rename-banner strong { color: var(--accent); }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.25rem 3rem;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--sage-light);
+  }
+
+  /* ── INTRO TIPS ── */
+  .tip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .tip-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .tip-card .tip-icon { font-size: 1.2rem; margin-bottom: 0.4rem; }
+  .tip-card strong { display: block; margin-bottom: 0.2rem; color: var(--charcoal); font-weight: 500; }
+
+  /* ── PROVIDER CARDS ── */
+  .provider-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s;
+  }
+  .provider-card:hover { box-shadow: 0 4px 28px rgba(0,0,0,0.1); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .card-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.1rem;
+  }
+  .card-title .subtitle {
+    font-size: 13px;
+    color: var(--mid);
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
+  }
+  .badge {
+    font-size: 11.5px;
+    padding: 0.2rem 0.65rem;
+    border-radius: 50px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .badge-medicaid-yes {
+    background: #dff0e5;
+    color: var(--confirmed);
+    border: 1px solid #b5d9c2;
+  }
+  .badge-medicaid-maybe {
+    background: #fef3e2;
+    color: var(--uncertain);
+    border: 1px solid #f5d9a8;
+  }
+  .badge-specialty {
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    border: 1px solid #b8d1c1;
+  }
+  .badge-pcos {
+    background: #f0e8f8;
+    color: #6a3d8a;
+    border: 1px solid #d5bff0;
+  }
+  .badge-research {
+    background: #fff0e8;
+    color: #8a4a2a;
+    border: 1px solid #f0c9aa;
+  }
+
+  .card-details {
+    font-size: 13.5px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .detail-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
+  }
+  .detail-row .icon { font-size: 12px; opacity: 0.7; flex-shrink: 0; }
+  .detail-row a {
+    color: var(--sage-dark);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--sage);
+  }
+  .detail-row a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .card-note {
+    margin-top: 0.9rem;
+    padding: 0.7rem 1rem;
+    background: var(--cream);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--mid);
+    border-left: 3px solid var(--sage-light);
+    line-height: 1.55;
+  }
+  .card-note strong { color: var(--charcoal); font-weight: 500; }
+
+  /* ── TELEHEALTH SECTION ── */
+  .telehealth-card {
+    border-color: var(--sage);
+    background: var(--warm-white);
+  }
+
+  /* ── RESOURCES ── */
+  .resource-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+  .resource-list li {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-size: 13.5px;
+  }
+  .resource-list a {
+    color: var(--sage-dark);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--sage);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .resource-list a:hover { color: var(--accent); }
+  .resource-list .res-desc { color: var(--light); font-size: 12.5px; }
+
+  /* ── FOOTER NOTE ── */
+  .footer-note {
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+  .footer-note strong { color: var(--charcoal); }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 12px;
+    color: var(--light);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 2rem 1.25rem; }
+    .card-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="header-eyebrow">Richmond, Virginia · Medicaid</p>
+    <h1>Finding a <em>PMOS/PCOS</em><br>Specialist in Richmond</h1>
+    <p>A guide to endocrinologists and OB/GYNs in the greater Richmond area with expertise in Polycystic Ovary Syndrome — now officially renamed Polyendocrine Metabolic Ovarian Syndrome (PMOS) — who accept Virginia Medicaid.</p>
+    <span class="name-badge">Prepared for Erin Lamberton · May 2026</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="rename-banner">
+    <strong>🔬 New Name Alert:</strong> As of May 12, 2026, PCOS has been officially renamed <strong>PMOS (Polyendocrine Metabolic Ovarian Syndrome)</strong> by a global coalition including the Endocrine Society. The old name is still widely used — search under both when looking for providers. The new name better reflects the hormonal and metabolic nature of the condition.
+    <br><a href="https://www.endocrine.org/news-and-advocacy/news-room/2026/pcos-name-change" target="_blank" style="color:var(--accent); font-size:13px;">Read the Endocrine Society announcement →</a>
+  </div>
+
+  <!-- QUICK TIPS -->
+  <p class="section-label">Before You Call</p>
+  <div class="tip-grid">
+    <div class="tip-card">
+      <div class="tip-icon">📋</div>
+      <strong>Always verify Medicaid</strong>
+      Insurance acceptance changes. Call any office before booking and confirm they take your specific Virginia Medicaid managed care plan (Anthem HealthKeepers Plus, Optima, etc.).
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔗</div>
+      <strong>Use the DMAS finder</strong>
+      Virginia Medicaid's official <a href="https://www.dmas.virginia.gov/for-members/find-a-provider/" target="_blank">Find a Provider</a> tool lets you search by specialty and your managed care plan.
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💬</div>
+      <strong>Mention the new name</strong>
+      Ask about "PCOS or PMOS" experience. Not all offices will have updated their language yet — both terms refer to the same condition.
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚗</div>
+      <strong>Transportation covered</strong>
+      Virginia Medicaid covers rides to medical appointments when you lack another way to get there. See the <a href="https://www.dmas.virginia.gov/for-members/benefits-and-services/transportation-services/" target="_blank">transportation benefit page</a>.
+    </div>
+  </div>
+
+  <!-- ENDOCRINOLOGISTS -->
+  <p class="section-label">Endocrinologists with PCOS/PMOS Expertise</p>
+
+  <!-- VCU Health -->
+  <div class="provider-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>VCU Health — Division of Endocrinology, Diabetes & Metabolism</h2>
+        <div class="subtitle">Academic Medical Center · Multiple Locations</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-yes">✓ Medicaid Accepted</span>
+      <span class="badge badge-specialty">Endocrinology</span>
+      <span class="badge badge-pcos">PCOS/PMOS Research Active</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">📍</span> Main campus: 1001 E. Leigh St., 14th Floor, Richmond VA 23219</div>
+      <div class="detail-row"><span class="icon">📍</span> Parham Rd. location: 2305 N. Parham Rd. Suite 1, Richmond VA 23229</div>
+      <div class="detail-row"><span class="icon">📍</span> Stony Point: 9000 Stony Point Pkwy, Richmond VA 23235</div>
+      <div class="detail-row"><span class="icon">📞</span> Main: (804) 828-2161 · Parham Rd: (804) 828-2467 · Stony Point: (804) 560-8920</div>
+      <div class="detail-row"><span class="icon">🌐</span> <a href="https://www.vcuhealth.org/services/endocrinology-diabetes-and-metabolism/" target="_blank">vcuhealth.org — Endocrinology</a></div>
+    </div>
+    <div class="card-note">
+      <strong>Why this matters for PCOS/PMOS:</strong> VCU's Division is actively involved in clinical research and trials including polycystic ovary syndrome. As Virginia's largest academic medical center and a safety-net hospital, VCU accepts Medicaid broadly, making this the most reliably accessible expert option in Richmond. The Stony Point outpatient location confirms Medicaid acceptance. Ask specifically for a provider with PCOS/PMOS interest when scheduling.
+    </div>
+  </div>
+
+  <!-- Dr. Iuorno -->
+  <div class="provider-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>Dr. Maria J. Iuorno, MD</h2>
+        <div class="subtitle">Virginia Endocrinology · Henrico / Richmond / Midlothian</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-yes">✓ Medicaid Accepted (18 plans)</span>
+      <span class="badge badge-specialty">Endocrinology</span>
+      <span class="badge badge-pcos">PCOS Specialist</span>
+      <span class="badge badge-research">Published PCOS Researcher</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">📍</span> Primary: 3460 Mayland Ct, Suite 100, Henrico VA 23233</div>
+      <div class="detail-row"><span class="icon">📍</span> Also: 7650 E. Parham Rd., Suite 210, Richmond VA 23294</div>
+      <div class="detail-row"><span class="icon">📍</span> Also: Midlothian location (348 Browns Hill Ct.)</div>
+      <div class="detail-row"><span class="icon">📞</span> (804) 423-3636</div>
+      <div class="detail-row"><span class="icon">🌐</span> <a href="https://virginiaendo.com/our-team" target="_blank">virginiaendo.com</a></div>
+      <div class="detail-row"><span class="icon">💻</span> Telehealth available — call to confirm eligibility</div>
+    </div>
+    <div class="card-note">
+      <strong>Why she stands out:</strong> Dr. Iuorno is one of the most PCOS-specialized physicians in the Richmond area — she has co-authored multiple peer-reviewed research papers on PCOS, insulin resistance, and hormone treatment. Patients specifically praise her PCOS knowledge in reviews. She speaks English and Spanish. Medicaid acceptance confirmed across multiple sources (WebMD lists 18 accepted plans). Note: she works 3 days/week with no early/late appointments — plan ahead for scheduling.
+    </div>
+  </div>
+
+  <!-- Virginia Diabetes & Endocrinology -->
+  <div class="provider-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>Virginia Diabetes and Endocrinology, PC</h2>
+        <div class="subtitle">Group Practice · Richmond</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-yes">✓ Medicaid Accepted</span>
+      <span class="badge badge-specialty">Endocrinology</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">📍</span> Richmond VA 23294</div>
+      <div class="detail-row"><span class="icon">📞</span> (804) 272-2702</div>
+      <div class="detail-row"><span class="icon">🕐</span> Mon–Fri 8:00 am – 4:30 pm · Accepting new patients</div>
+    </div>
+    <div class="card-note">
+      <strong>Note:</strong> Multi-physician endocrinology group with confirmed Medicaid acceptance (listed on WebMD). Covers endocrinology, diabetes, and metabolism including hormone disorders. Call to ask specifically about PCOS/PMOS experience among their providers.
+    </div>
+  </div>
+
+  <!-- OB-GYNs -->
+  <p class="section-label">OB/GYN Practices Treating PCOS/PMOS</p>
+
+  <!-- VPFW -->
+  <div class="provider-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>Virginia Physicians for Women (VPFW)</h2>
+        <div class="subtitle">OB/GYN · 6 Richmond-Area Locations</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-yes">✓ Most VA Medicaid Plans</span>
+      <span class="badge badge-specialty">OB/GYN</span>
+      <span class="badge badge-pcos">Named PCOS Providers</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">📍</span> 6 offices: Midlothian, N. Chesterfield, Prince George, Richmond (2), Short Pump</div>
+      <div class="detail-row"><span class="icon">📞</span> (804) 897-2100 · <a href="https://vpfw.com/locations/" target="_blank">vpfw.com/locations</a></div>
+      <div class="detail-row"><span class="icon">🌐</span> Online scheduling available at <a href="https://vpfw.com" target="_blank">vpfw.com</a></div>
+    </div>
+    <div class="card-note">
+      <strong>Specific PCOS providers to ask about:</strong><br>
+      • <strong>Dr. Lois A. Davis</strong> — lists PCOS as a named specialty interest. Sees patients at Koger Center and Prince George locations. Passionate about health equity and social determinants of health.<br>
+      • <strong>Dr. Marie K. Grove</strong> — explicitly mentions helping patients understand PCOS. Sees patients at St. Mary's and Henrico Doctors' Hospital locations.<br><br>
+      VPFW accepts "most VA Medicaid plans" including Anthem HealthKeepers Plus and Optima Health Community Care. Availability varies by provider — call to confirm your specific plan. Voted Best OB/GYN practice in Richmond multiple years. Next-day appointments often available.
+    </div>
+  </div>
+
+  <!-- VCU OB/GYN -->
+  <div class="provider-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>VCU Health — Women's Health & OB/GYN</h2>
+        <div class="subtitle">Academic OB/GYN · Multiple Locations</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-yes">✓ Medicaid Accepted</span>
+      <span class="badge badge-specialty">OB/GYN</span>
+      <span class="badge badge-pcos">PCOS/PMOS Care Available</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">📍</span> Women's Health at Stony Point: 9000 Stony Point Pkwy, Richmond VA 23235</div>
+      <div class="detail-row"><span class="icon">📞</span> OB/GYN appointments: (804) 828-4409 · Stony Point: (804) 560-8950</div>
+      <div class="detail-row"><span class="icon">🕐</span> Mon–Fri 8:00 am – 4:30 pm · Accepting new patients</div>
+      <div class="detail-row"><span class="icon">🌐</span> <a href="https://www.vcuhealth.org/services/womens-health/" target="_blank">vcuhealth.org/womens-health</a></div>
+    </div>
+    <div class="card-note">
+      <strong>Why consider VCU OB/GYN:</strong> As the only academic OB/GYN department in Central Virginia, VCU has subspecialty depth — including reproductive endocrinology and infertility — and reliably accepts Medicaid. If PCOS/PMOS care intersects with fertility concerns, this is the strongest referral network in the region. "Top Docs" recognized providers on staff.
+    </div>
+  </div>
+
+  <!-- Virginia Women's Center -->
+  <div class="provider-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>Virginia Women's Center</h2>
+        <div class="subtitle">OB/GYN · Richmond (West Broad St. + Short Pump)</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-maybe">⚠ Medicaid Varies by Provider</span>
+      <span class="badge badge-specialty">OB/GYN</span>
+      <span class="badge badge-pcos">PCOS Interest Noted</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">📍</span> 6600 W. Broad St., Suite 100, Richmond VA 23230</div>
+      <div class="detail-row"><span class="icon">📍</span> 12129 Graham Meadows Dr., Richmond VA 23233</div>
+      <div class="detail-row"><span class="icon">📞</span> (804) 288-4084 · <a href="https://virginiawomenscenter.com" target="_blank">virginiawomenscenter.com</a></div>
+    </div>
+    <div class="card-note">
+      <strong>Medicaid caution:</strong> Virginia Women's Center states that "Medicaid participation is optional and varies amongst Privia providers" — meaning some doctors in this practice accept it and some do not. Call and specifically ask whether your plan is accepted by the individual provider you'd be seeing.<br><br>
+      <strong>Provider of note:</strong> Dr. Elizabeth B. Roberts has a stated interest in PCOS care alongside gynecologic surgery. Ask about her Medicaid status when calling.
+    </div>
+  </div>
+
+  <!-- TELEHEALTH -->
+  <p class="section-label">Telehealth Option</p>
+
+  <div class="provider-card telehealth-card">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>PCOS Sisters (Virginia Telehealth)</h2>
+        <div class="subtitle">PCOS-Specialized NP Practice · Virtual Visits</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-medicaid-maybe">⚠ Verify Medicaid Acceptance</span>
+      <span class="badge badge-pcos">PCOS-Only Practice</span>
+      <span class="badge badge-specialty">Nurse Practitioner</span>
+    </div>
+    <div class="card-details">
+      <div class="detail-row"><span class="icon">💻</span> Telehealth only — serves Virginia patients remotely</div>
+      <div class="detail-row"><span class="icon">🌐</span> <a href="https://pcossisters.com/virginia/" target="_blank">pcossisters.com/virginia</a></div>
+    </div>
+    <div class="card-note">
+      <strong>What makes this unique:</strong> This practice is entirely dedicated to PCOS — providers focus exclusively on this condition, which means deep familiarity with labs, medications, and symptom management that generalist OB/GYNs may not provide. Patient reviews consistently mention feeling "taken seriously" for the first time. Verify Medicaid acceptance directly with the practice — this is a specialty telehealth service and insurance details can change. Worth a call even to be on a waitlist.
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <p class="section-label">Helpful Links</p>
+  <ul class="resource-list">
+    <li>
+      <a href="https://www.dmas.virginia.gov/for-members/find-a-provider/" target="_blank">VA Medicaid Provider Finder</a>
+      <span class="res-desc">Search by specialty + your managed care plan</span>
+    </li>
+    <li>
+      <a href="https://www.dmas.virginia.gov/for-members/benefits-and-services/" target="_blank">VA Medicaid Benefits Overview</a>
+      <span class="res-desc">What's covered, including specialist visits</span>
+    </li>
+    <li>
+      <a href="https://www.endocrine.org/news-and-advocacy/news-room/2026/pcos-name-change" target="_blank">PMOS Name Change (Endocrine Society)</a>
+      <span class="res-desc">Official announcement, May 2026</span>
+    </li>
+    <li>
+      <a href="https://www.mchri.org.au/guidelines-resources/community/pcos-resources/" target="_blank">PMOS Patient Resources (Monash)</a>
+      <span class="res-desc">Multi-language resources from the global renaming team</span>
+    </li>
+    <li>
+      <a href="https://www.dmas.virginia.gov/for-members/benefits-and-services/transportation-services/" target="_blank">Medicaid Ride Coverage</a>
+      <span class="res-desc">Free transportation to appointments</span>
+    </li>
+    <li>
+      <a href="https://commonhelp.virginia.gov" target="_blank">CommonHelp — Apply for VA Medicaid</a>
+      <span class="res-desc">Virginia's online Medicaid application portal</span>
+    </li>
+  </ul>
+
+  <!-- FOOTER NOTE -->
+  <div class="footer-note">
+    <strong>Important disclaimer:</strong> Insurance acceptance changes frequently, and the information here was compiled in May 2026 from publicly available sources. Always call any provider's office directly before scheduling to confirm they accept your specific Virginia Medicaid managed care plan. If you are on a Medicaid managed care plan (Anthem HealthKeepers Plus, Optima Health Community Care, etc.), the provider must be in-network with that specific plan — not just Medicaid generally. The Virginia Medicaid <a href="https://www.dmas.virginia.gov/for-members/find-a-provider/" target="_blank" style="color:var(--sage-dark)">Find a Provider tool</a> is the most authoritative source.
+  </div>
+
+</main>
+
+<footer>
+  Compiled for Erin Lamberton · Richmond, VA PMOS/PCOS Provider Guide · May 2026
+</footer>
+
+</body>
+</html>
